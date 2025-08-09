@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-anime-pink/10 via-anime-purple/10 to-anime-blue/10;
+    @apply font-anime antialiased;
+    @apply min-h-screen;
+  }
+  
+  * {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .character-card {
+    @apply bg-gradient-card backdrop-blur-sm;
+    @apply border border-white/20 rounded-2xl;
+    @apply shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply relative overflow-hidden;
+  }
+  
+  .character-card::before {
+    content: '';
+    @apply absolute inset-0 bg-shimmer;
+    @apply opacity-0 hover:opacity-100 transition-opacity duration-500;
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .anime-button {
+    @apply bg-gradient-to-r from-primary-400 to-primary-600;
+    @apply text-white font-semibold py-3 px-6 rounded-full;
+    @apply transform transition-all duration-200;
+    @apply hover:scale-105 hover:shadow-lg active:scale-95;
+    @apply relative overflow-hidden;
+  }
+  
+  .anime-button::before {
+    content: '';
+    @apply absolute inset-0 bg-white/20;
+    @apply transform -translate-x-full transition-transform duration-300;
+    @apply hover:translate-x-0;
+  }
+  
+  .xp-bar {
+    @apply bg-gray-200 rounded-full overflow-hidden;
+    @apply relative h-3;
+  }
+  
+  .xp-progress {
+    @apply bg-gradient-to-r from-anime-gold to-anime-coral;
+    @apply h-full transition-all duration-1000 ease-out;
+    @apply relative overflow-hidden;
+  }
+  
+  .xp-progress::after {
+    content: '';
+    @apply absolute inset-0 bg-shimmer;
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .stat-circle {
+    @apply relative;
+    @apply w-20 h-20 rounded-full;
+    @apply flex items-center justify-center;
+    @apply bg-gradient-to-br from-white to-gray-50;
+    @apply border-4 border-primary-300;
+    @apply shadow-md;
+  }
+  
+  .sparkle-effect {
+    @apply absolute pointer-events-none;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  .floating-element {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .level-up-animation {
+    animation: levelUp 1s ease-out;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary-400 to-primary-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-primary-500 to-primary-700;
+}
